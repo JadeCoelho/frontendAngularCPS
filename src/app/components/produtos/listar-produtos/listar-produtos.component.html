@@ -1,0 +1,29 @@
+<h1 class="my-3 text-primary">Listar produtos
+  <button class="btn btn-success float-right" type="button" routerLink="/produtos/cadastrar">Cadastrar</button>
+</h1>
+
+<div class="card shadow">
+  <table class="table table-responsive table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nome</th>
+        <th>Validade</th>
+        <th>Valor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produto of listaProdutos">
+        <td>{{ produto.id }}</td>
+        <td>{{ produto.nome }}</td>
+        <td>{{ produto.validade | date: "shortDate"}}</td>
+        <td>{{ produto.valor | currency: "EUR" }}</td>
+        <td>
+          <button class="btn btn-warning"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button class="btn btn-danger ml-2"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
