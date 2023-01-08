@@ -1,22 +1,18 @@
 <h1>Seja bem-vindo(a) ao curso de Angular!</h1>
 <h4 class="text-success">{{ anuncio }}</h4>
-<div class="card" style="width: 18rem;">
+<div class="row">
+  <div class="col">
+    <app-card-produto
+    [foto]="foto" [nomeProduto]="nomeProduto" [idProduto]="idProduto" [precoProduto]="precoProduto" [dataLimite]="dataLimite" [promocao]="promocao">
 
-  <img [src]="foto" class="card-img-top" alt="...">
-
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ nomeProduto | uppercase }}
-      <span *ngIf="promocao; else aproveitar" class="badge badge-success">Promoção</span>
-      <ng-template #aproveitar>
-        <span class="badge badge-warning">Aproveite</span>
-      </ng-template>
-    </h5>
-
-    <p class="card-text">{{ idProduto | number: '2.0-1'}}</p>
-    <p> Promoção válida até {{ dataLimite | date: 'dd/MM/yyyy'}}</p>
-
-    <a href="#" class="btn btn-primary float-right">{{ precoProduto | currency: 'EUR'}}</a>
+    </app-card-produto>
   </div>
 
+  <div class="col">
+    <app-card-produto
+    foto="https://static.mundoeducacao.uol.com.br/mundoeducacao/2020/11/mapa-franca.png" nomeProduto="Viagem à França" idProduto="30" precoProduto=2500 dataLimite="2023-01-05" promocao="false">
+
+    </app-card-produto>
+  </div>
 </div>
+
